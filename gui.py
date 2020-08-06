@@ -1,4 +1,5 @@
 from tkinter import *
+from PIL import Image,ImageTk
 
 root = Tk()
 root.title("Whisper")
@@ -14,6 +15,16 @@ pwa=StringVar()
 repwa=StringVar()
 ems=StringVar()
 
+
+logo_icon=ImageTk.PhotoImage(file="icons/user6.png",)
+user_icon=ImageTk.PhotoImage(file="icons/user2.png")
+mail_icon=ImageTk.PhotoImage(file="icons/mail.png")
+pass_icon=ImageTk.PhotoImage(file="icons/lock1.png")
+logo_icon=ImageTk.PhotoImage(file="icons/user7.png")
+addr_icon=ImageTk.PhotoImage(file="icons/addr.png")
+
+co_icon=ImageTk.PhotoImage(file="icons/cop.png")
+ph_icon=ImageTk.PhotoImage(file="icons/ph.png")
 
 root.config(background=bg)
 
@@ -47,21 +58,25 @@ def loginFrame():
     lf.pack(anchor="center",pady=200)
 
 def signupFrame():
-    sf = Frame(root,bg='#333333',bd=0,width=800,height=800,relief="solid")
+    sf = Frame(root,bg='#333333',bd=0,relief="solid")
     sf.config(highlightcolor="#FFA500",highlightbackground="#FFA500",highlightthickness=3)
     Logo=Label(sf,text='Sign Up',font=font,padx=150,pady=20,bg=bg,fg="#FFA500")
+    usericon=Label(sf,image=user_icon,compound=LEFT,bg="#333333")
     username = Entry(sf,width=26,font=5,textvariable=user,fg="gray")
-    user.set("Enter Username")
+    user.set("Username")
+    mailicon=Label(sf,image=mail_icon,compound=LEFT,bg="#333333")
     password = Entry(sf,width=26,font=5,textvariable=pwa,fg="gray")
-    pwa.set("Enter Password ")
+    pwa.set("Password ")
     rePassword = Entry(sf,width=26,font=5,textvariable=repwa,fg="gray")
-    repwa.set("Enter Repassword")
+    repwa.set("Repassword")
     email = Entry(sf,width=26,font=5,textvariable=ems,fg="gray")
-    ems.set("Enter Email")
+    ems.set("Email")
     signupButton = Button(sf,text="Signup",relief="flat",padx=18,bg=bg,fg="#FFA500")
     backButton = Button(sf,text="Back",relief="flat",padx=24,bg=bg,fg="#FFA500",command=lambda : changeFrame(sf,loginFrame))
     labpad=Label(sf,bg="#333333")
     Logo.grid(row=0,column=0,columnspan=4)
+    usericon.grid(row=1,column=0,columnspan=4,padx=10,sticky='w')
+    mailicon.grid(row=2,column=0,columnspan=4,padx=10,sticky='w')
 
     username.grid(row=1,column=0,columnspan=4)
     password.grid(row=2,column=0,columnspan=4,pady=30)
